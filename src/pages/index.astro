@@ -90,52 +90,7 @@ import Footer from '../components/Footer.astro';
   <section class="py-24 bg-white">
     <div class="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
       <div class="flex-1 flex justify-center">
-        <div class="w-full max-w-sm bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
-          <div class="bg-slate-50 px-6 pt-6 pb-4 border-b border-slate-100">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="flex-1 flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-3 py-2.5">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-                <span class="text-sm text-slate-800 font-medium">Cheese</span>
-              </div>
-              <div class="w-9 h-9 bg-teal-600 rounded-xl flex items-center justify-center">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="p-4 grid grid-cols-3 gap-2.5">
-            {[
-              { label: 'Shredded', emoji: '🧀' },
-              { label: 'Block', emoji: '🟨' },
-              { label: 'Sliced', emoji: '🫓' },
-              { label: 'Snacks', emoji: '🧆' },
-              { label: 'Mac & Cheese', emoji: '🍝' },
-              { label: 'Cream Cheese', emoji: '🥛' },
-            ].map((c, i) => (
-              <button class={`flex flex-col items-center gap-1.5 rounded-2xl p-3 border text-center ${i === 0 ? 'bg-teal-50 border-teal-200' : 'bg-slate-50 border-slate-100'}`}>
-                <span class="text-2xl">{c.emoji}</span>
-                <span class="text-[11px] font-medium text-slate-700 leading-tight">{c.label}</span>
-              </button>
-            ))}
-          </div>
-          <div class="px-4 pb-4 space-y-2.5">
-            {[
-              { name: 'Tillamook Medium Cheddar, 16 oz', store: 'Target', price: '$5.49', unit: '$0.34/oz' },
-              { name: 'Cabot Sharp Vermont Cheddar', store: 'Walgreens', price: '$4.79', unit: '$0.30/oz' },
-            ].map(p => (
-              <div class="flex items-center gap-3 bg-slate-50 rounded-xl p-3 border border-slate-100">
-                <div class="w-10 h-10 bg-amber-50 rounded-lg flex items-center justify-center text-lg shrink-0">🧀</div>
-                <div class="flex-1 min-w-0">
-                  <p class="text-xs font-medium text-slate-800 leading-tight truncate">{p.name}</p>
-                  <p class="text-[11px] text-slate-500 mt-0.5">{p.store}</p>
-                </div>
-                <div class="text-right shrink-0">
-                  <div class="text-sm font-bold text-slate-900">{p.price}</div>
-                  <div class="text-[10px] text-slate-400">{p.unit}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <img src="/search-intelligence-image.png" alt="Cartana search intelligence showing category-aware product results" class="w-full max-w-sm rounded-3xl shadow-xl shadow-slate-900/15" />
       </div>
       <div class="flex-1 lg:max-w-md">
         <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">Search intelligence</p>
