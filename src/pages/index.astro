@@ -51,72 +51,9 @@ import Footer from '../components/Footer.astro';
         </div>
       </div>
 
-      <!-- Phone mockup -->
-      <div class="flex-1 flex justify-center lg:justify-end animate-float">
-        <div class="relative w-[300px]">
-          <div class="bg-slate-900 rounded-[44px] p-3 shadow-2xl shadow-slate-900/30">
-            <div class="bg-white rounded-[36px] overflow-hidden">
-              <div class="bg-white px-6 pt-3 pb-2 flex justify-between items-center text-[10px] text-slate-400">
-                <span>9:41</span>
-              </div>
-              <div class="px-4 pb-3 flex items-center gap-2">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-teal-600"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="currentColor"/><circle cx="12" cy="9" r="2.5" fill="white"/></svg>
-                <span class="text-sm font-semibold text-slate-800">cartana</span>
-              </div>
-              <div class="px-4 mb-4">
-                <div class="flex items-center gap-2 bg-slate-100 rounded-xl px-3 py-2.5">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-                  <span class="text-sm text-slate-500">Eggs</span>
-                </div>
-              </div>
-              <div class="px-4 flex gap-2 mb-4 overflow-x-hidden">
-                {['All Eggs','Cage Free','Organic'].map((c, i) => (
-                  <span class={`shrink-0 text-[11px] font-medium px-2.5 py-1 rounded-full ${i === 0 ? 'bg-teal-600 text-white' : 'bg-slate-100 text-slate-600'}`}>{c}</span>
-                ))}
-              </div>
-              <div class="mx-4 mb-3 bg-teal-50 border border-teal-100 rounded-2xl p-3">
-                <div class="text-[10px] font-semibold text-teal-600 uppercase tracking-wide mb-1.5">Best Deal</div>
-                <div class="flex items-start gap-2.5">
-                  <div class="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center text-xl shrink-0">🥚</div>
-                  <div class="flex-1 min-w-0">
-                    <p class="text-xs font-semibold text-slate-800 leading-tight">Festive Voice Pastel Marbled Eggs – 12 ct</p>
-                    <p class="text-xs text-slate-500 mt-0.5">Walgreens</p>
-                  </div>
-                  <div class="text-right shrink-0">
-                    <div class="text-sm font-bold text-slate-900">$1.99</div>
-                    <div class="text-[10px] text-teal-600">$0.17/ct</div>
-                  </div>
-                </div>
-              </div>
-              <div class="mx-4 mb-3 bg-white border border-slate-100 rounded-2xl p-3">
-                <div class="text-[10px] font-semibold text-slate-500 uppercase tracking-wide mb-2">Nearby stores</div>
-                {[
-                  { name: 'Walgreens', price: '$1.99', color: 'bg-red-500' },
-                  { name: 'West Side Market', price: '$4.99', color: 'bg-green-600' },
-                  { name: 'Target', price: '$5.29', color: 'bg-red-600' },
-                ].map(s => (
-                  <div class="flex items-center gap-2.5 py-1.5">
-                    <div class={`w-4 h-4 rounded-full ${s.color}`}></div>
-                    <span class="flex-1 text-xs text-slate-700">{s.name}</span>
-                    <span class="text-xs font-semibold text-slate-900">{s.price}</span>
-                  </div>
-                ))}
-              </div>
-              <div class="mx-4 mb-4 bg-white border border-teal-100 rounded-2xl p-3">
-                <div class="flex items-center gap-1.5 mb-2">
-                  <div class="w-4 h-4 bg-teal-600 rounded-full"></div>
-                  <span class="text-[10px] font-semibold text-teal-700">Smart suggestion</span>
-                </div>
-                <p class="text-xs font-medium text-slate-800">Vital Farms Cage Free Large Brown Eggs – 12 ct</p>
-                <div class="flex items-center gap-2 mt-1.5">
-                  <span class="text-sm font-bold text-slate-900">$6.79</span>
-                  <span class="text-[10px] text-teal-600 font-medium">West Side Market</span>
-                </div>
-                <p class="text-[10px] text-slate-500 mt-1">Better quality • +12¢/ct</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <!-- Hero image -->
+      <div class="flex-1 flex justify-center lg:justify-end">
+        <img src="/hero-image.png" alt="Cartana app showing price comparison across nearby stores" class="w-full max-w-sm rounded-3xl shadow-2xl shadow-slate-900/20" />
       </div>
     </div>
   </section>
