@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="How Cartana Works — Smart grocery search and cart optimization"
+  description="See how Cartana helps you search local prices, build a smarter cart, and track deals across nearby stores."
+>
+  <Header activePage="/how-it-works" />
+
+  <section class="bg-white pt-20 pb-16 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">How it works</p>
+      <h1 class="text-5xl font-bold text-slate-900 tracking-tight mb-5">Smarter shopping, made simple.</h1>
+      <p class="text-xl text-slate-500 leading-relaxed">
+        Cartana brings together local store prices, product intelligence, and smart optimization so you can shop with confidence.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-20">
+    <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+      {[
+        { step: '01', icon: '🔍', title: 'Search anything', desc: 'Type what you need. Cartana understands products by category, form, and flavor — not just keywords.' },
+        { step: '02', icon: '📍', title: 'Compare locally', desc: 'See real prices across nearby stores instantly. No delivery markups, no guesswork.' },
+        { step: '03', icon: '🛒', title: 'Build your cart', desc: 'Add items and let Cartana optimize by price, convenience, or fewest stores.' },
+        { step: '04', icon: '📈', title: 'Track and save', desc: 'Watch prices over time and buy when items hit their lowest. Know before you shop.' },
+      ].map(s => (
+        <div class="text-center">
+          <div class="w-14 h-14 bg-teal-50 border-2 border-teal-100 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">{s.icon}</div>
+          <div class="text-xs font-bold text-teal-500 uppercase tracking-widest mb-2">{s.step}</div>
+          <h3 class="font-semibold text-slate-900 mb-2">{s.title}</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-6 space-y-24">
+
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="flex-1 lg:max-w-md">
+          <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">Step 1</p>
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Search understands what you actually mean.</h2>
+          <p class="text-slate-500 leading-relaxed mb-6">
+            Most search tools match keywords. Cartana matches intent. Search "cheese" and you get a category grid — Shredded, Block, Sliced, Snacks — because we understand what your household might actually need.
+          </p>
+          <p class="text-slate-500 leading-relaxed">
+            Our product taxonomy understands brand, form, flavor, dietary tag, and use case so you never have to guess the exact product name.
+          </p>
+        </div>
+        <div class="flex-1 bg-slate-50 rounded-3xl p-6 border border-slate-100 space-y-3">
+          {[
+            '"eggs" → All Eggs, Cage Free, Organic, Pasture Raised',
+            '"cheese" → Shredded, Block, Sliced, Snacks, Cream Cheese',
+            '"OJ" → Fresh-squeezed, Not from concentrate, Pulp-free',
+            '"tide" → Pods, Liquid, Powder, HE versions',
+          ].map(example => (
+            <div class="bg-white rounded-2xl p-4 border border-slate-200 text-sm font-medium text-slate-800 flex items-center gap-3">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+              {example}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row-reverse items-center gap-12">
+        <div class="flex-1 lg:max-w-md">
+          <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">Step 2</p>
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Compare real prices at nearby stores.</h2>
+          <p class="text-slate-500 leading-relaxed mb-6">
+            Cartana checks prices across the stores near you and presents them side by side with unit prices, store distance, and freshness indicators.
+          </p>
+          <p class="text-slate-500 leading-relaxed">No synthetic prices. No delivery fee padding. What you see is what the store charges.</p>
+        </div>
+        <div class="flex-1 bg-slate-50 rounded-3xl p-6 border border-slate-100 space-y-3">
+          {[
+            { store: 'Walgreens', price: '$1.99', unit: '$0.17/ct', dist: '0.3 mi', badge: 'Best price', badgeColor: 'bg-teal-100 text-teal-700' },
+            { store: 'West Side Market', price: '$4.99', unit: '$0.42/ct', dist: '0.7 mi', badge: '', badgeColor: '' },
+            { store: 'Target', price: '$5.29', unit: '$0.44/ct', dist: '1.2 mi', badge: '', badgeColor: '' },
+          ].map(s => (
+            <div class="bg-white rounded-2xl p-4 border border-slate-200 flex items-center gap-4">
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 mb-0.5">
+                  <span class="text-sm font-semibold text-slate-900">{s.store}</span>
+                  {s.badge && <span class={`text-xs font-medium px-2 py-0.5 rounded-full ${s.badgeColor}`}>{s.badge}</span>}
+                </div>
+                <span class="text-xs text-slate-400">{s.dist} away</span>
+              </div>
+              <div class="text-right">
+                <div class="text-base font-bold text-slate-900">{s.price}</div>
+                <div class="text-xs text-slate-400">{s.unit}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="flex-1 lg:max-w-md">
+          <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">Step 3</p>
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Build a cart. Let Cartana optimize it.</h2>
+          <p class="text-slate-500 leading-relaxed mb-6">
+            Add items as you would a shopping list. Cartana calculates your basket across all nearby stores and shows you three paths: Best Price, Fewest Stores, or Best Convenience.
+          </p>
+          <p class="text-slate-500 leading-relaxed">You choose what tradeoff makes sense today. Cartana handles the math.</p>
+        </div>
+        <div class="flex-1 bg-slate-50 rounded-3xl p-6 border border-slate-100 space-y-3">
+          {[
+            { label: 'Best Price', price: '$48.22', note: 'Save $12.37' },
+            { label: 'Fewest Stores', price: '$53.91', note: '2 stores only' },
+            { label: 'Best Convenience', price: '$55.18', note: 'Shortest drive' },
+          ].map(m => (
+            <div class="bg-white rounded-2xl p-4 border border-slate-200 flex items-center justify-between">
+              <div>
+                <div class="text-sm font-semibold text-slate-900">{m.label}</div>
+                <div class="text-xs text-slate-500">{m.note}</div>
+              </div>
+              <div class="text-xl font-bold text-slate-900">{m.price}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="bg-teal-600 py-20 text-center">
+    <div class="max-w-xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-white mb-4">Ready to shop smarter?</h2>
+      <p class="text-teal-100 mb-8">Try Cartana free — no account required to search.</p>
+      <a href="https://cartana.app" class="inline-flex items-center gap-2 bg-white text-teal-700 font-semibold px-8 py-3.5 rounded-full hover:bg-teal-50 transition-colors">
+        Try Cartana
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

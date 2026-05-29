@@ -1,111 +1,64 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
+import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const posts = [
+  { slug: 'when-are-eggs-cheapest', category: 'Savings', title: 'When are eggs the cheapest near you?', excerpt: "Egg prices swing more than almost any grocery item. Here's how to track the right time to stock up based on local store patterns.", date: 'May 10, 2026', readTime: '5 min read', emoji: '🥚' },
+  { slug: 'shredded-vs-block-cheese', category: 'Guide', title: "Shredded vs Block Cheese: What's the better deal?", excerpt: 'The answer depends on how you cook, how much you buy, and which store you\'re at. We ran the unit price math so you don\'t have to.', date: 'Apr 28, 2026', readTime: '6 min read', emoji: '🧀' },
+  { slug: 'new-stores-optimization', category: 'Updates', title: 'New: Fewer Stores optimization mode', excerpt: 'The latest Cartana update adds a Fewest Stores mode to smart cart — consolidate your grocery run without blowing the budget.', date: 'Apr 18, 2026', readTime: '3 min read', emoji: '🗺️' },
+  { slug: 'grocery-budget-families', category: 'Guide', title: 'How families under $250/week shop smarter', excerpt: 'A deep look at which categories offer the most flexibility and which are price-stable — and how a smart cart changes the calculus.', date: 'Apr 5, 2026', readTime: '8 min read', emoji: '👨‍👩‍👧' },
+  { slug: 'unit-pricing-explained', category: 'Savings', title: 'Unit pricing is the most underrated grocery skill', excerpt: "Most shoppers never look at price per ounce. The ones who do save meaningfully every trip. Here's how to make it automatic.", date: 'Mar 22, 2026', readTime: '4 min read', emoji: '💲' },
+  { slug: 'tide-vs-generic', category: 'Savings', title: "Brand name vs. generic: when it matters and when it doesn't", excerpt: 'For some categories the brand is just packaging. For others, the quality gap is real. We mapped it out with actual shopper data.', date: 'Mar 14, 2026', readTime: '7 min read', emoji: '🧺' },
+];
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout
+  title="Blog — Tips, insights, and updates from Cartana"
+  description="Savings guides, product insights, and Cartana updates to help you shop smarter every week."
+>
+  <Header activePage="/blog" />
+
+  <section class="bg-white pt-20 pb-16 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">From the Cartana Blog</p>
+      <h1 class="text-5xl font-bold text-slate-900 tracking-tight mb-5">
+        Tips, insights, and updates<br class="hidden sm:block" /> to shop smarter.
+      </h1>
+      <p class="text-xl text-slate-500">Savings guides, product breakdowns, and what's new in Cartana.</p>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16">
+    <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {posts.map(post => (
+        <article class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow group">
+          <div class="h-36 bg-slate-100 flex items-center justify-center text-6xl">{post.emoji}</div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class={`text-xs font-semibold px-2.5 py-1 rounded-full ${post.category === 'Savings' ? 'bg-green-100 text-green-700' : post.category === 'Guide' ? 'bg-blue-50 text-blue-600' : 'bg-teal-50 text-teal-700'}`}>{post.category}</span>
+            </div>
+            <h2 class="font-bold text-slate-900 text-lg leading-snug mb-3 group-hover:text-teal-700 transition-colors">{post.title}</h2>
+            <p class="text-sm text-slate-500 leading-relaxed mb-4">{post.excerpt}</p>
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span>{post.date}</span>
+              <span>{post.readTime}</span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-teal-600 py-20 text-center">
+    <div class="max-w-xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-white mb-4">Put the tips to use.</h2>
+      <p class="text-teal-100 mb-8">Try Cartana free and start shopping smarter today.</p>
+      <a href="https://cartana.app" class="inline-flex items-center gap-2 bg-white text-teal-700 font-semibold px-8 py-3.5 rounded-full hover:bg-teal-50 transition-colors">
+        Try Cartana free
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

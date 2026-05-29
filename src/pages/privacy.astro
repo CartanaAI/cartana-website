@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Privacy Policy — Cartana"
+  description="How Cartana handles your data, your grocery list, and your shopping habits."
+>
+  <Header activePage="/privacy" />
+
+  <section class="bg-white pt-20 pb-24">
+    <div class="max-w-3xl mx-auto px-6">
+      <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">Privacy</p>
+      <h1 class="text-4xl font-bold text-slate-900 mb-4">Your privacy, plainly explained.</h1>
+      <p class="text-lg text-slate-500 mb-12">
+        Cartana is built on the belief that shoppers should never have to trade privacy for savings.
+      </p>
+
+      <div class="grid sm:grid-cols-3 gap-4 mb-16">
+        {[
+          { icon: '✅', title: 'We never sell your data', desc: 'Your grocery list and shopping habits are never sold to advertisers, retailers, or data brokers.' },
+          { icon: '🔒', title: 'Your list is yours', desc: 'Your saved items and cart history stay private. We don\'t share it with stores or third parties.' },
+          { icon: '📍', title: 'Location is optional', desc: 'We use your location only to find nearby stores. You can enter a zip code instead.' },
+        ].map(b => (
+          <div class="bg-teal-50 rounded-2xl p-5 border border-teal-100 text-center">
+            <div class="text-3xl mb-3">{b.icon}</div>
+            <h3 class="font-semibold text-slate-900 text-sm mb-2">{b.title}</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">{b.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="space-y-8 text-slate-500 leading-relaxed">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900 mb-3">What we collect</h2>
+          <ul class="space-y-2 list-disc pl-5">
+            <li><strong class="text-slate-700">Search queries</strong> — to return relevant product results. Not linked to your identity unless you are signed in.</li>
+            <li><strong class="text-slate-700">Cart contents</strong> — if you save a cart, it is stored in your account and used only to provide the service.</li>
+            <li><strong class="text-slate-700">Location or zip code</strong> — to find stores near you. We do not store precise location history.</li>
+            <li><strong class="text-slate-700">Account info</strong> — if you create an account, we store your email and preferences.</li>
+            <li><strong class="text-slate-700">Usage analytics</strong> — aggregate, anonymized data on which features are used. No individual profiles.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-slate-900 mb-3">What we never do</h2>
+          <ul class="space-y-2 list-disc pl-5">
+            <li>We do not sell, license, or share your personal data with advertisers or data brokers.</li>
+            <li>We do not share your grocery list with stores, even stores you shop at.</li>
+            <li>We do not build behavioral advertising profiles.</li>
+            <li>We do not use dark patterns to extract more data than necessary.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-slate-900 mb-3">Cookies</h2>
+          <p>We use minimal cookies for session management and basic analytics. We do not use third-party advertising cookies.</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-slate-900 mb-3">Data retention</h2>
+          <p>You can delete your account and all associated data at any time from your account settings. We retain anonymized, aggregate analytics data to improve the product.</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold text-slate-900 mb-3">Contact</h2>
+          <p>Questions about this policy? Email us at <a href="mailto:privacy@cartana.app" class="text-teal-600 hover:underline">privacy@cartana.app</a>.</p>
+        </div>
+
+        <p class="text-slate-400 text-sm">Last updated: May 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

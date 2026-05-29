@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Features — Cartana Smart Shopping"
+  description="Explore every feature Cartana offers: smart search, cart optimization, price tracking, substitutions, and more."
+>
+  <Header activePage="/features" />
+
+  <section class="bg-white pt-20 pb-16 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">Features</p>
+      <h1 class="text-5xl font-bold text-slate-900 tracking-tight mb-5">Powerful features.<br />Built for real shoppers.</h1>
+      <p class="text-xl text-slate-500 leading-relaxed">Every feature in Cartana is designed to help you spend less, waste less, and shop with more confidence.</p>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-20">
+    <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        { icon: '🔍', title: 'Smart search', desc: 'Search by category, form, brand, or dietary tag. We understand products — not just keywords.', badge: 'Live' },
+        { icon: '📍', title: 'Local price comparison', desc: 'Real prices from stores near you, shown side by side. No markups, no synthetic data.', badge: 'Live' },
+        { icon: '🛒', title: 'Cart optimization', desc: 'Build a list and optimize by best price, fewest stores, or best convenience in one click.', badge: 'Live' },
+        { icon: '📈', title: 'Price tracking', desc: 'Watch products over 30, 60, and 90 days. Get alerts when prices dip below average.', badge: 'Live' },
+        { icon: '🔄', title: 'Smart substitutions', desc: 'See comparable alternatives with full explanations — same form, similar quality, lower cost.', badge: 'Live' },
+        { icon: '💲', title: 'Unit price math', desc: 'Always see cost per ounce, per count, per serving. Compare apples to apples, not packages.', badge: 'Live' },
+        { icon: '🗺️', title: 'Store discovery', desc: 'Find stores near you that carry what you need, with drive times and distance.', badge: 'Live' },
+        { icon: '🍳', title: 'Recipe planning', desc: 'Turn recipes into optimized shopping lists with local pricing for every ingredient.', badge: 'Coming soon' },
+        { icon: '💰', title: 'Household budgeting', desc: 'Set weekly or monthly grocery budgets and track spending across your cart history.', badge: 'Coming soon' },
+        { icon: '🔔', title: 'Price drop alerts', desc: 'Get notified when items on your watchlist hit a target price or historical low.', badge: 'Coming soon' },
+        { icon: '🤖', title: 'Autonomous shopping', desc: 'Tell Cartana what to reorder and let it find the best option automatically.', badge: 'Future' },
+        { icon: '🔒', title: 'Privacy by design', desc: 'Your grocery list is yours. We never sell your data or habits to advertisers.', badge: 'Always' },
+      ].map(f => (
+        <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+          <div class="flex items-start justify-between mb-4">
+            <div class="text-3xl">{f.icon}</div>
+            <span class={`text-xs font-semibold px-2.5 py-1 rounded-full ${f.badge === 'Live' ? 'bg-teal-100 text-teal-700' : f.badge === 'Coming soon' ? 'bg-slate-100 text-slate-500' : f.badge === 'Always' ? 'bg-blue-50 text-blue-600' : 'bg-slate-50 text-slate-400'}`}>{f.badge}</span>
+          </div>
+          <h3 class="font-semibold text-slate-900 mb-2">{f.title}</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-slate-900 tracking-tight">How Cartana compares</h2>
+        <p class="mt-3 text-slate-500">Against the alternatives shoppers use today.</p>
+      </div>
+      <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-slate-100 bg-slate-50">
+              <th class="text-left px-6 py-4 text-slate-700 font-semibold w-1/3">Feature</th>
+              <th class="px-6 py-4 text-slate-500 font-medium">Store apps</th>
+              <th class="px-6 py-4 text-slate-500 font-medium">Delivery apps</th>
+              <th class="px-6 py-4 text-teal-700 font-semibold bg-teal-50">Cartana</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Multi-store price comparison', false, false, true],
+              ['Real (non-marked-up) prices', true, false, true],
+              ['Smart category search', false, false, true],
+              ['Cart optimization', false, false, true],
+              ['Price trend tracking', false, false, true],
+              ['Explained substitutions', false, false, true],
+              ['Unit price display', false, false, true],
+              ['Privacy-first (no data sales)', true, false, true],
+            ].map(row => (
+              <tr class="border-b border-slate-50 hover:bg-slate-50/50 transition-colors">
+                <td class="px-6 py-4 text-slate-700 font-medium">{row[0]}</td>
+                {row.slice(1).map((val, i) => (
+                  <td class={`px-6 py-4 text-center ${i === 2 ? 'bg-teal-50/50' : ''}`}>
+                    {val
+                      ? <svg class="w-5 h-5 text-teal-600 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                      : <svg class="w-5 h-5 text-slate-300 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    }
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-teal-600 py-20 text-center">
+    <div class="max-w-xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-white mb-4">Try every feature free.</h2>
+      <p class="text-teal-100 mb-8">No account required to search. Create a free account to save your cart and track prices.</p>
+      <a href="https://cartana.app" class="inline-flex items-center gap-2 bg-white text-teal-700 font-semibold px-8 py-3.5 rounded-full hover:bg-teal-50 transition-colors">
+        Get started free
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
