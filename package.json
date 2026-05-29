@@ -19,7 +19,10 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"deploy": "echo 'Static site — deployed by Cloudflare Pages'"
+		"deploy": "wrangler pages deploy dist"
 	},
-	"type": "module"
+	"type": "module",
+	"devDependencies": {
+		"wrangler": "^4.95.0"
+	}
 }
