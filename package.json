@@ -18,7 +18,8 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"astro": "astro"
+		"astro": "astro",
+		"deploy": "echo 'Static site — deployed by Cloudflare Pages'"
 	},
 	"type": "module"
 }
