@@ -1,0 +1,267 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Layout
+  title="Why Cartana — Shopping deserves better tools"
+  description="Most shopping decisions are made with incomplete information. Cartana exists to change that."
+>
+  <Header activePage="/why-cartana" />
+
+  <!-- HERO -->
+  <section class="bg-white pt-20 pb-0 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-end gap-12">
+      <div class="flex-1 max-w-xl pb-20">
+        <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-4">Why Cartana</p>
+        <h1 class="text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-6">
+          Shopping deserves better tools.
+        </h1>
+        <p class="text-lg text-slate-500 leading-relaxed mb-10">
+          Every day, millions of people make smart choices with incomplete information. We built Cartana to change that.
+        </p>
+        <ul class="space-y-3">
+          {[
+            'Clearer information',
+            'Smarter decisions',
+            'Less waste',
+            'More money in your pocket',
+          ].map(point => (
+            <li class="flex items-center gap-3 text-slate-700 font-medium">
+              <Icon name="check-circle" size={18} class="text-teal-600 shrink-0" />
+              {point}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="flex-1 flex justify-center lg:justify-end">
+        <img
+          src="/hero-image.png"
+          alt="Cartana app showing price comparison"
+          class="w-full max-w-xs rounded-t-3xl shadow-2xl shadow-slate-900/20"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="bg-slate-50 py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">The problem</p>
+        <h2 class="text-4xl font-bold text-slate-900 tracking-tight">Why shopping feels so hard today</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        {[
+          { icon: 'dollar',  title: 'Prices are everywhere.', desc: 'Prices vary across stores and change often. It\'s hard to know what\'s actually a good deal.' },
+          { icon: 'layers',  title: 'Information is scattered.', desc: 'Store apps, delivery apps, coupons, and ads all show different information. Nothing is connected.' },
+          { icon: 'clock',   title: 'Shopping takes time.', desc: 'Comparing options, planning meals, building lists, and tracking prices is exhausting.' },
+          { icon: 'trash',   title: 'Too much goes to waste.', desc: 'We buy more than we need or forget what we have. Good food gets lost in the fridge—or the trash.' },
+          { icon: 'user',    title: 'You deserve better.', desc: 'You work hard for your money. You deserve tools that help you make the best choices.' },
+        ].map(card => (
+          <div class="flex flex-col items-center text-center">
+            <div class="w-14 h-14 bg-white border border-slate-200 rounded-2xl flex items-center justify-center mb-5 text-teal-600 shadow-sm">
+              <Icon name={card.icon} size={22} />
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm mb-2 leading-snug">{card.title}</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- STATS BAR -->
+      <div class="mt-16 grid md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl border border-slate-200 p-8 flex items-center gap-6">
+          <div class="w-14 h-14 bg-teal-50 border border-teal-100 rounded-2xl flex items-center justify-center shrink-0 text-teal-600">
+            <Icon name="piggy-bank" size={24} />
+          </div>
+          <div>
+            <p class="text-slate-500 text-sm mb-1">The average household overpays on groceries by</p>
+            <p class="text-4xl font-bold text-teal-600 leading-none">$1,000+</p>
+            <p class="text-slate-400 text-sm mt-1">every year.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-slate-200 p-8 flex items-center gap-6">
+          <div class="w-14 h-14 bg-red-50 border border-red-100 rounded-2xl flex items-center justify-center shrink-0 text-red-400">
+            <Icon name="trash" size={24} />
+          </div>
+          <div>
+            <p class="text-4xl font-bold text-slate-900 leading-none mb-1">40%</p>
+            <p class="text-slate-500 text-sm">of food purchased is never eaten.</p>
+            <p class="text-slate-400 text-xs mt-1">Source: USDA, FMI, NRDC</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR APPROACH -->
+  <section class="bg-white py-24">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
+      <div class="flex-1 lg:max-w-sm">
+        <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">Our approach</p>
+        <h2 class="text-4xl font-bold text-slate-900 tracking-tight mb-6">A better way to shop.</h2>
+        <p class="text-slate-500 leading-relaxed mb-8">
+          Cartana brings the most important information together in one place—so you can shop with confidence.
+        </p>
+        <ul class="space-y-5">
+          {[
+            { icon: 'store',         label: 'Compare local prices',    desc: 'See real prices from nearby stores.' },
+            { icon: 'search',        label: 'Find better options',     desc: 'Discover alternatives that fit your needs and budget.' },
+            { icon: 'cart',          label: 'Build smarter carts',     desc: 'Optimize for price, convenience, or fewer stops.' },
+            { icon: 'trending-up',   label: 'Track what matters',      desc: 'Watch prices over time and get alerts.' },
+            { icon: 'leaf',          label: 'Waste less, save more',   desc: 'Plan better and use what you buy.' },
+          ].map(item => (
+            <li class="flex items-start gap-4">
+              <div class="w-9 h-9 bg-teal-50 border border-teal-100 rounded-xl flex items-center justify-center shrink-0 text-teal-600">
+                <Icon name={item.icon} size={16} />
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-slate-900">{item.label}</p>
+                <p class="text-xs text-slate-500 mt-0.5">{item.desc}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- CART MOCKUP -->
+      <div class="flex-1 flex justify-center">
+        <div class="w-full max-w-xs space-y-3">
+          <div class="bg-white rounded-3xl border border-slate-200 shadow-lg p-5">
+            <div class="flex items-center justify-between mb-4">
+              <h4 class="font-semibold text-slate-900 text-sm">My Cart</h4>
+              <span class="text-xs text-slate-400">12 items</span>
+            </div>
+            {[
+              { name: 'Eggs', qty: '12 ct', price: '$1.99' },
+              { name: 'Milk', qty: '1 gal', price: '$3.49' },
+              { name: 'Bread', qty: '1 loaf', price: '$3.29' },
+              { name: 'Chicken Breasts', qty: '1.5 lb', price: '$6.99' },
+              { name: 'Cheddar Cheese', qty: '8 oz', price: '$4.49' },
+            ].map(item => (
+              <div class="flex items-center gap-3 py-2 border-b border-slate-50 last:border-0">
+                <div class="w-7 h-7 bg-slate-100 rounded-lg flex items-center justify-center shrink-0 text-slate-400">
+                  <Icon name="package" size={13} />
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs font-medium text-slate-800">{item.name}</p>
+                  <p class="text-[10px] text-slate-400">{item.qty}</p>
+                </div>
+                <span class="text-xs font-semibold text-slate-900 shrink-0">{item.price}</span>
+              </div>
+            ))}
+            <p class="text-[10px] text-slate-400 mt-2">...and 7 more</p>
+          </div>
+          <div class="space-y-2">
+            {[
+              { label: 'Best Price', price: '$48.22', note: 'Save $12.73', accent: 'border-teal-200 bg-teal-50', bar: 'bg-teal-600' },
+              { label: 'Best Convenience', price: '$53.91', note: null, accent: 'border-slate-100 bg-white', bar: 'bg-slate-200' },
+              { label: 'One Store Trip', price: '$55.18', note: null, accent: 'border-slate-100 bg-white', bar: 'bg-slate-200' },
+            ].map(mode => (
+              <div class={`rounded-2xl border p-3.5 flex items-center gap-3 ${mode.accent}`}>
+                <div class={`w-1.5 h-8 rounded-full ${mode.bar} shrink-0`}></div>
+                <div class="flex-1">
+                  <p class="text-xs font-semibold text-slate-900">{mode.label}</p>
+                  {mode.note && <p class="text-[10px] text-teal-600 font-medium">{mode.note}</p>}
+                </div>
+                <p class="text-base font-bold text-slate-900">{mode.price}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- OUTCOMES -->
+      <div class="flex-1 flex flex-col gap-4 lg:max-w-xs">
+        {[
+          { icon: 'dollar',      label: 'Save money',    desc: 'with the best price options.' },
+          { icon: 'clock',       label: 'Save time',     desc: 'with fewer stores and less travel.' },
+          { icon: 'check-circle',label: 'Make smarter',  desc: 'decisions with clear information.' },
+        ].map(o => (
+          <div class="flex items-start gap-4 bg-slate-50 rounded-2xl border border-slate-100 p-4">
+            <div class="w-9 h-9 bg-teal-50 border border-teal-100 rounded-xl flex items-center justify-center shrink-0 text-teal-600">
+              <Icon name={o.icon} size={16} />
+            </div>
+            <div>
+              <p class="text-sm font-bold text-slate-900">{o.label}</p>
+              <p class="text-xs text-slate-500">{o.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE BELIEVE -->
+  <section class="bg-slate-50 py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">What we believe</p>
+        <h2 class="text-4xl font-bold text-slate-900 tracking-tight">Simple principles. Clear purpose.</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { icon: 'bar-chart',   title: 'Better information creates better outcomes.', desc: 'People make good decisions when they have clear information.' },
+          { icon: 'scale',       title: 'Convenience should not replace transparency.', desc: "The easiest option isn't always the best option." },
+          { icon: 'dollar',      title: 'Saving money matters.', desc: "Every household deserves tools that help stretch their budget further." },
+          { icon: 'leaf',        title: 'Reducing waste matters.', desc: 'Food, time, fuel, and money are all resources worth protecting.' },
+          { icon: 'shield',      title: 'Technology should work quietly.', desc: "The best tools don't demand attention. They help people make better decisions with less effort." },
+          { icon: 'heart',       title: 'Shopping should work for you.', desc: 'Not for algorithms, advertising networks, or hidden incentives. For you.' },
+        ].map(b => (
+          <div class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
+            <div class="w-10 h-10 bg-teal-50 border border-teal-100 rounded-xl flex items-center justify-center mb-4 text-teal-600">
+              <Icon name={b.icon} size={18} />
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm mb-2 leading-snug">{b.title}</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">{b.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-teal-800 py-20">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-8">
+      <div>
+        <h2 class="text-3xl font-bold text-white mb-2">Shopping should work for you.</h2>
+        <p class="text-teal-200 text-lg">Cartana is here to help you spend less, waste less, and get more from every trip.</p>
+      </div>
+      <div class="flex gap-3 shrink-0">
+        <a href="https://cartana.app" class="inline-flex items-center bg-white text-teal-800 font-semibold text-sm px-6 py-3 rounded-full hover:bg-teal-50 transition-colors">
+          Try Cartana
+        </a>
+        <a href="https://cartana.app" class="inline-flex items-center border border-white/40 text-white font-semibold text-sm px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
+          Join Early Access
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="bg-white py-12 border-t border-slate-100">
+    <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8">
+      {[
+        { icon: 'heart',       label: 'Built for shoppers',       desc: 'Not for retailers.' },
+        { icon: 'lock',        label: 'Your data stays yours',    desc: "We don't sell your information." },
+        { icon: 'shield',      label: 'Independent & transparent',desc: 'No hidden fees. No bias.' },
+        { icon: 'trending-up', label: 'Always improving',         desc: "We're just getting started." },
+      ].map(t => (
+        <div class="flex items-start gap-3">
+          <div class="w-9 h-9 bg-teal-50 rounded-xl flex items-center justify-center shrink-0 text-teal-600">
+            <Icon name={t.icon} size={16} />
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-slate-900">{t.label}</p>
+            <p class="text-xs text-slate-500 mt-0.5">{t.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
