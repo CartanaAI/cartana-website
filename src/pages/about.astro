@@ -1,62 +1,198 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage="/blog-placeholder-about.jpg"
+  title="About Cartana — Shopping intelligence built for households"
+  description="Cartana exists to help people spend less, waste less, and make more informed shopping decisions every day."
 >
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+  <Header activePage="/about" />
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+  <!-- HERO -->
+  <section class="bg-white pt-20 pb-24">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
+      <div class="flex-1 max-w-xl">
+        <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-4">About Cartana</p>
+        <h1 class="text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-6">
+          Built for shoppers.<br />Focused on what matters.
+        </h1>
+        <p class="text-lg text-slate-500 leading-relaxed mb-8">
+          We help people spend less, waste less, and make more informed shopping decisions—every day.
+        </p>
+        <div class="bg-teal-50 border border-teal-100 rounded-2xl px-6 py-5 flex items-start gap-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" class="shrink-0 mt-0.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          <p class="text-sm text-slate-700 leading-relaxed">
+            Every purchase is a decision. We're here to help you make better ones.
+          </p>
+        </div>
+      </div>
+      <div class="flex-1 flex justify-center lg:justify-end">
+        <img
+          src="/hero-image.png"
+          alt="Cartana app showing price comparison across nearby stores"
+          class="w-full max-w-sm rounded-3xl shadow-2xl shadow-slate-900/20"
+        />
+      </div>
+    </div>
+  </section>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+  <!-- OUR STORY -->
+  <section class="bg-slate-50 py-24">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
+      <div class="flex-1 bg-teal-100 rounded-3xl overflow-hidden aspect-[4/3] flex items-center justify-center">
+        <div class="text-center p-12">
+          <div class="text-6xl mb-4">🛒</div>
+          <p class="text-teal-800 font-medium text-sm">Shopping for your household</p>
+        </div>
+      </div>
+      <div class="flex-1 lg:max-w-lg">
+        <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">Our story</p>
+        <h2 class="text-4xl font-bold text-slate-900 tracking-tight mb-6">Shopping has become harder than it should be.</h2>
+        <div class="space-y-4 text-slate-500 leading-relaxed">
+          <p>
+            Consumers are expected to compare prices across multiple stores, keep track of promotions, plan meals, manage budgets, remember what they have at home, and somehow avoid wasting food along the way.
+          </p>
+          <p>
+            Most tools only solve a small piece of that problem. Some help you order groceries. Others help you make a list. Some offer coupons. But very few help people understand the full picture.
+          </p>
+          <p class="text-slate-700 font-medium">
+            We built Cartana to change that. Because shopping shouldn't feel like guesswork.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+  <!-- WHAT WE BELIEVE -->
+  <section class="bg-white py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">What we believe</p>
+        <h2 class="text-4xl font-bold text-slate-900 tracking-tight">Better shopping starts with better information.</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {[
+          {
+            icon: `<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="currentColor"/>`,
+            title: 'Information should save people money.',
+            desc: 'Clear, accurate pricing and product information helps households make smarter decisions.',
+          },
+          {
+            icon: `<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="none" stroke="currentColor" stroke-width="2"/>`,
+            title: "Convenience shouldn't sacrifice transparency.",
+            desc: 'We surface the real tradeoffs so you can choose what\'s right for you.',
+          },
+          {
+            icon: `<path d="M17 8C8 10 5.9 16.17 3.82 19H2v2h18v-2h-.82c-1.6-2.7-2.2-4.85-2.18-7 .04-3.2 1.75-5 3-6z" fill="currentColor" opacity=".3"/><path d="M17 8C8 10 5.9 16.17 3.82 19h14.36C16.2 16.17 14.1 10 5 8c0 0 6.91 1.5 12 0z" fill="none" stroke="currentColor" stroke-width="1.5"/>`,
+            title: 'Better planning creates less waste.',
+            desc: 'Smarter lists and insights help households buy what they need and use what they buy.',
+          },
+          {
+            icon: `<rect x="2" y="3" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2"/>`,
+            title: 'Technology should work quietly.',
+            desc: 'The best tools just make your life easier. No noise, no overwhelm.',
+          },
+        ].map(b => (
+          <div class="flex flex-col items-center text-center">
+            <div class="w-14 h-14 bg-teal-50 border border-teal-100 rounded-2xl flex items-center justify-center mb-5 text-teal-600">
+              <svg width="24" height="24" viewBox="0 0 24 24" set:html={b.icon} />
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm mb-3 leading-snug">{b.title}</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">{b.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
+  <!-- OUR VISION -->
+  <section class="bg-slate-50 py-24">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
+      <div class="flex-1 lg:max-w-md">
+        <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">Our vision</p>
+        <h2 class="text-4xl font-bold text-slate-900 tracking-tight mb-6">
+          A future where shopping is simple, smart, and built around you.
+        </h2>
+        <p class="text-slate-500 leading-relaxed">
+          Today, we focus on groceries and household essentials. Tomorrow, we believe these same principles can help people make better purchasing decisions everywhere.
+        </p>
+      </div>
+      <div class="flex-1">
+        <div class="grid grid-cols-2 gap-4">
+          {[
+            { icon: '🛒', label: 'Smarter decisions' },
+            { icon: '💰', label: 'More savings' },
+            { icon: '🌿', label: 'Less waste' },
+            { icon: '❤️', label: 'More time for what matters' },
+          ].map(v => (
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col items-center text-center shadow-sm">
+              <span class="text-3xl mb-3">{v.icon}</span>
+              <p class="text-sm font-semibold text-slate-800 leading-snug">{v.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CARTANA -->
+  <section class="bg-white py-24">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-start gap-16">
+      <div class="flex-1 lg:max-w-sm">
+        <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">Why Cartana</p>
+        <h2 class="text-4xl font-bold text-slate-900 tracking-tight mb-6">We're on your side.</h2>
+        <p class="text-slate-500 leading-relaxed">
+          We're not here to push more products. We're here to give you the clarity, tools, and confidence to shop better—for your household, your budget, and your future.
+        </p>
+      </div>
+      <div class="flex-1">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          {[
+            { icon: '🏪', label: 'Compare local prices' },
+            { icon: '🔍', label: 'Discover better alternatives' },
+            { icon: '🛒', label: 'Build smarter carts' },
+            { icon: '📊', label: 'Track what matters' },
+            { icon: '📉', label: 'Reduce unnecessary spending' },
+            { icon: '♻️', label: 'Reduce household waste' },
+          ].map(f => (
+            <div class="bg-slate-50 rounded-2xl border border-slate-100 p-5 flex flex-col items-center text-center">
+              <span class="text-2xl mb-3">{f.icon}</span>
+              <p class="text-xs font-semibold text-slate-700 leading-snug">{f.label}</p>
+            </div>
+          ))}
+        </div>
+        <p class="text-slate-400 text-sm mt-8 text-center">
+          Because every dollar saved matters. And every purchase is a decision worth understanding.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-teal-800 py-20">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-8">
+      <div>
+        <h2 class="text-3xl font-bold text-white mb-2">Ready to shop smarter?</h2>
+        <p class="text-teal-200 text-lg">Join thousands of households already saving time, money, and stress with Cartana.</p>
+      </div>
+      <div class="flex gap-3 shrink-0">
+        <a
+          href="https://cartana.app"
+          class="inline-flex items-center bg-white text-teal-800 font-semibold text-sm px-6 py-3 rounded-full hover:bg-teal-50 transition-colors"
+        >
+          Try Cartana
+        </a>
+        <a
+          href="https://cartana.app"
+          class="inline-flex items-center border border-white/40 text-white font-semibold text-sm px-6 py-3 rounded-full hover:bg-white/10 transition-colors"
+        >
+          Join Early Access
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
 </Layout>
