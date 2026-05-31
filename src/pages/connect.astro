@@ -1,0 +1,213 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Layout
+  title="Connect — Cartana"
+  description="Get in touch with the Cartana team. Questions, partnerships, media inquiries, or feedback — we'd love to hear from you."
+>
+  <Header activePage="/connect" />
+
+  <!-- HERO -->
+  <section class="bg-white pt-20 pb-0 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-end gap-12">
+      <div class="flex-1 max-w-xl pb-20">
+        <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-4">Connect</p>
+        <h1 class="text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-6">
+          We'd love to hear from you.
+        </h1>
+        <p class="text-lg text-slate-500 leading-relaxed mb-12">
+          Whether you're a shopper, retailer, journalist, community organization, or potential partner, we're always interested in learning how Cartana can be more useful.
+        </p>
+        <div class="flex flex-wrap gap-8">
+          {[
+            { icon: 'heart',   label: 'Built for shoppers' },
+            { icon: 'shield',  label: 'Privacy first' },
+            { icon: 'users',   label: 'Community minded' },
+          ].map(p => (
+            <div class="flex flex-col items-center gap-2.5 text-center">
+              <div class="w-12 h-12 bg-teal-50 border border-teal-100 rounded-2xl flex items-center justify-center text-teal-600">
+                <Icon name={p.icon} size={20} />
+              </div>
+              <span class="text-xs font-medium text-slate-600">{p.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="flex-1 flex justify-center lg:justify-end">
+        <img
+          src="/hero-image.png"
+          alt="Cartana app"
+          class="w-full max-w-xs rounded-t-3xl shadow-2xl shadow-slate-900/20"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- WAYS TO CONNECT -->
+  <section class="bg-slate-50 py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider text-center mb-12">Ways to connect</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          {
+            icon: 'message-circle',
+            title: 'General Questions',
+            desc: 'Questions about Cartana, features, or how it works?',
+            action: 'support@cartana.app',
+            href: 'mailto:support@cartana.app',
+          },
+          {
+            icon: 'link',
+            title: 'Partnerships',
+            desc: "Let's build smarter shopping together. We're exploring partnerships with retailers, local businesses, food banks, and community organizations.",
+            action: 'partnerships@cartana.app',
+            href: 'mailto:partnerships@cartana.app',
+          },
+          {
+            icon: 'megaphone',
+            title: 'Media Inquiries',
+            desc: 'Request information, interviews, screenshots, or media assets.',
+            action: 'press@cartana.app',
+            href: 'mailto:press@cartana.app',
+          },
+          {
+            icon: 'lightbulb',
+            title: 'Share Feedback',
+            desc: "Help shape Cartana. What should we build next? What's not working? We're listening.",
+            action: 'Submit feedback',
+            href: 'mailto:feedback@cartana.app',
+          },
+        ].map(card => (
+          <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 flex flex-col">
+            <div class="w-12 h-12 bg-teal-50 border border-teal-100 rounded-2xl flex items-center justify-center mb-5 text-teal-600">
+              <Icon name={card.icon} size={20} />
+            </div>
+            <h3 class="font-bold text-slate-900 mb-3">{card.title}</h3>
+            <p class="text-sm text-slate-500 leading-relaxed flex-1 mb-5">{card.desc}</p>
+            <a
+              href={card.href}
+              class="inline-flex items-center gap-1.5 text-teal-600 text-sm font-semibold hover:gap-3 transition-all"
+            >
+              {card.action}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- YOUR VOICE MATTERS -->
+  <section class="bg-white py-24">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
+      <div class="flex-1 lg:max-w-md">
+        <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">Your voice matters</p>
+        <h2 class="text-4xl font-bold text-slate-900 tracking-tight mb-6">
+          Help shape the future of smarter shopping.
+        </h2>
+        <p class="text-slate-500 leading-relaxed mb-8">
+          Cartana is built with our community. Your feedback helps us make the app more useful for you and millions of shoppers like you.
+        </p>
+        <a
+          href="mailto:feedback@cartana.app"
+          class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm px-6 py-3 rounded-full transition-colors"
+        >
+          Share your feedback
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="flex-1 flex flex-col gap-4 max-w-sm">
+        {[
+          { initials: 'SL', color: 'bg-teal-600',  text: 'Cartana helps me find better prices so easily. Love it!' },
+          { initials: 'MR', color: 'bg-slate-700', text: 'The price tracking is a game changer for my family.' },
+        ].map(r => (
+          <div class="bg-slate-50 rounded-2xl border border-slate-100 p-5 flex items-start gap-4">
+            <div class={`w-10 h-10 rounded-full ${r.color} flex items-center justify-center text-white text-sm font-bold shrink-0`}>{r.initials}</div>
+            <div>
+              <div class="flex gap-0.5 mb-2">
+                {[1,2,3,4,5].map(() => (
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><path d="M12 2l2.09 6.43H21l-5.47 3.97 2.09 6.43L12 14.87l-5.62 3.96 2.09-6.43L3 8.43h6.91z"/></svg>
+                ))}
+              </div>
+              <p class="text-sm text-slate-700 leading-relaxed">"{r.text}"</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="bg-slate-50 py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider text-center mb-12">What's next</p>
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-8">
+          <h3 class="font-bold text-slate-900 text-lg mb-6">Currently working on</h3>
+          <ul class="space-y-5">
+            {[
+              { label: 'Expanding retailer coverage', desc: 'More local stores and better price availability.' },
+              { label: 'Smarter product grouping', desc: 'Improving how we understand and organize products.' },
+              { label: 'Price alerts', desc: 'Get notified when prices drop on items you care about.' },
+            ].map(item => (
+              <li class="flex items-start gap-3">
+                <Icon name="check-circle" size={18} class="text-teal-600 shrink-0 mt-0.5" />
+                <div>
+                  <p class="text-sm font-semibold text-slate-900">{item.label}</p>
+                  <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">{item.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-8">
+          <h3 class="font-bold text-slate-900 text-lg mb-6">Coming soon</h3>
+          <ul class="space-y-5">
+            {[
+              { label: 'Smart cart improvements', desc: 'Even better optimization for price and convenience.' },
+              { label: 'Recipe integration', desc: 'Plan meals and add ingredients to your cart.' },
+              { label: 'Household planning', desc: 'Tools to help you plan, budget, and reduce waste.' },
+            ].map(item => (
+              <li class="flex items-start gap-3">
+                <div class="w-[18px] h-[18px] rounded-full border-2 border-slate-300 shrink-0 mt-0.5"></div>
+                <div>
+                  <p class="text-sm font-semibold text-slate-700">{item.label}</p>
+                  <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">{item.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAY IN THE LOOP -->
+  <section class="bg-teal-800 py-20">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center gap-8">
+      <div class="w-12 h-12 bg-teal-700 rounded-2xl flex items-center justify-center shrink-0 text-white">
+        <Icon name="mail" size={22} />
+      </div>
+      <div class="flex-1">
+        <h2 class="text-xl font-bold text-white mb-1">Stay in the loop</h2>
+        <p class="text-teal-200 text-sm">Get updates on new features, tips, and ways to save.</p>
+      </div>
+      <div class="flex gap-2 w-full sm:w-auto">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          class="flex-1 sm:w-60 bg-white/10 border border-white/20 text-white placeholder-teal-300 text-sm px-4 py-3 rounded-full focus:outline-none focus:border-white/50"
+        />
+        <button class="bg-white text-teal-800 font-semibold text-sm px-5 py-3 rounded-full hover:bg-teal-50 transition-colors whitespace-nowrap">
+          Get updates
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
