@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
 ---
 
 <Layout
@@ -21,22 +22,22 @@ import Footer from '../components/Footer.astro';
   <section class="bg-slate-50 py-20">
     <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {[
-        { icon: '🔍', title: 'Smart search', desc: 'Search by category, form, brand, or dietary tag. We understand products — not just keywords.', badge: 'Live' },
-        { icon: '📍', title: 'Local price comparison', desc: 'Real prices from stores near you, shown side by side. No markups, no synthetic data.', badge: 'Live' },
-        { icon: '🛒', title: 'Cart optimization', desc: 'Build a list and optimize by best price, fewest stores, or best convenience in one click.', badge: 'Live' },
-        { icon: '📈', title: 'Price tracking', desc: 'Watch products over 30, 60, and 90 days. Get alerts when prices dip below average.', badge: 'Live' },
-        { icon: '🔄', title: 'Smart substitutions', desc: 'See comparable alternatives with full explanations — same form, similar quality, lower cost.', badge: 'Live' },
-        { icon: '💲', title: 'Unit price math', desc: 'Always see cost per ounce, per count, per serving. Compare apples to apples, not packages.', badge: 'Live' },
-        { icon: '🗺️', title: 'Store discovery', desc: 'Find stores near you that carry what you need, with drive times and distance.', badge: 'Live' },
-        { icon: '🍳', title: 'Recipe planning', desc: 'Turn recipes into optimized shopping lists with local pricing for every ingredient.', badge: 'Coming soon' },
-        { icon: '💰', title: 'Household budgeting', desc: 'Set weekly or monthly grocery budgets and track spending across your cart history.', badge: 'Coming soon' },
-        { icon: '🔔', title: 'Price drop alerts', desc: 'Get notified when items on your watchlist hit a target price or historical low.', badge: 'Coming soon' },
-        { icon: '🤖', title: 'Autonomous shopping', desc: 'Tell Cartana what to reorder and let it find the best option automatically.', badge: 'Future' },
-        { icon: '🔒', title: 'Privacy by design', desc: 'Your grocery list is yours. We never sell your data or habits to advertisers.', badge: 'Always' },
+        { icon: 'search',        title: 'Smart search', desc: 'Search by category, form, brand, or dietary tag. We understand products — not just keywords.', badge: 'Live' },
+        { icon: 'pin',           title: 'Local price comparison', desc: 'Real prices from stores near you, shown side by side. No markups, no synthetic data.', badge: 'Live' },
+        { icon: 'cart',          title: 'Cart optimization', desc: 'Build a list and optimize by best price, fewest stores, or best convenience in one click.', badge: 'Live' },
+        { icon: 'trending-up',   title: 'Price tracking', desc: 'Watch products over 30, 60, and 90 days. Get alerts when prices dip below average.', badge: 'Live' },
+        { icon: 'swap',          title: 'Smart substitutions', desc: 'See comparable alternatives with full explanations — same form, similar quality, lower cost.', badge: 'Live' },
+        { icon: 'tag',           title: 'Unit price math', desc: 'Always see cost per ounce, per count, per serving. Compare apples to apples, not packages.', badge: 'Live' },
+        { icon: 'map',           title: 'Store discovery', desc: 'Find stores near you that carry what you need, with drive times and distance.', badge: 'Live' },
+        { icon: 'utensils',      title: 'Recipe planning', desc: 'Turn recipes into optimized shopping lists with local pricing for every ingredient.', badge: 'Coming soon' },
+        { icon: 'wallet',        title: 'Household budgeting', desc: 'Set weekly or monthly grocery budgets and track spending across your cart history.', badge: 'Coming soon' },
+        { icon: 'bell',          title: 'Price drop alerts', desc: 'Get notified when items on your watchlist hit a target price or historical low.', badge: 'Coming soon' },
+        { icon: 'sparkles',      title: 'Autonomous shopping', desc: 'Tell Cartana what to reorder and let it find the best option automatically.', badge: 'Future' },
+        { icon: 'lock',          title: 'Privacy by design', desc: 'Your grocery list is yours. We never sell your data or habits to advertisers.', badge: 'Always' },
       ].map(f => (
         <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
           <div class="flex items-start justify-between mb-4">
-            <div class="text-3xl">{f.icon}</div>
+            <div class="w-10 h-10 bg-teal-50 border border-teal-100 rounded-xl flex items-center justify-center text-teal-600"><Icon name={f.icon} size={20} /></div>
             <span class={`text-xs font-semibold px-2.5 py-1 rounded-full ${f.badge === 'Live' ? 'bg-teal-100 text-teal-700' : f.badge === 'Coming soon' ? 'bg-slate-100 text-slate-500' : f.badge === 'Always' ? 'bg-blue-50 text-blue-600' : 'bg-slate-50 text-slate-400'}`}>{f.badge}</span>
           </div>
           <h3 class="font-semibold text-slate-900 mb-2">{f.title}</h3>

@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
 ---
 
 <Layout>
@@ -70,13 +71,13 @@ import Footer from '../components/Footer.astro';
       </div>
       <div class="grid md:grid-cols-3 gap-6">
         {[
-          { icon: '🏪', title: 'Store apps', subtitle: 'Only show their prices.', desc: 'Locked to a single retailer. No comparison. No context.', accent: 'border-red-100 bg-red-50', badge: 'bg-red-100 text-red-700' },
-          { icon: '🛵', title: 'Delivery apps', subtitle: 'Show convenience.', desc: 'Marked-up prices, hidden fees, and algorithms tuned to maximize orders—not savings.', accent: 'border-orange-100 bg-orange-50', badge: 'bg-orange-100 text-orange-700' },
-          { icon: '🎯', title: 'Cartana', subtitle: 'Shows the whole picture.', desc: 'Real prices across nearby stores. Smart search that understands products, not just keywords.', accent: 'border-teal-100 bg-teal-50', badge: 'bg-teal-100 text-teal-700' },
+          { icon: 'store',  title: 'Store apps',    subtitle: 'Only show their prices.', desc: 'Locked to a single retailer. No comparison. No context.', accent: 'border-red-100 bg-red-50', badge: 'bg-red-100 text-red-700' },
+          { icon: 'truck',  title: 'Delivery apps', subtitle: 'Show convenience.', desc: 'Marked-up prices, hidden fees, and algorithms tuned to maximize orders—not savings.', accent: 'border-orange-100 bg-orange-50', badge: 'bg-orange-100 text-orange-700' },
+          { icon: 'target', title: 'Cartana',        subtitle: 'Shows the whole picture.', desc: 'Real prices across nearby stores. Smart search that understands products, not just keywords.', accent: 'border-teal-100 bg-teal-50', badge: 'bg-teal-100 text-teal-700' },
         ].map(card => (
           <div class={`rounded-2xl border p-6 ${card.accent}`}>
             <div class={`inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-semibold mb-4 ${card.badge}`}>
-              <span>{card.icon}</span> {card.title}
+              <Icon name={card.icon} size={13} /> {card.title}
             </div>
             <h3 class="text-lg font-semibold text-slate-900 mb-2">{card.subtitle}</h3>
             <p class="text-sm text-slate-600 leading-relaxed">{card.desc}</p>
@@ -126,12 +127,12 @@ import Footer from '../components/Footer.astro';
               <span class="text-xs text-slate-500">14 items</span>
             </div>
             {[
-              { name: 'Eggs', store: 'Walgreens', price: '$1.99', emoji: '🥚' },
-              { name: 'Milk, 2% Gallon', store: 'West Side Market', price: '$3.29', emoji: '🥛' },
-              { name: 'Chicken Breasts (2 lbs)', store: 'Target', price: '$6.49', emoji: '🍗' },
+              { name: 'Eggs', store: 'Walgreens', price: '$1.99' },
+              { name: 'Milk, 2% Gallon', store: 'West Side Market', price: '$3.29' },
+              { name: 'Chicken Breasts (2 lbs)', store: 'Target', price: '$6.49' },
             ].map(item => (
               <div class="flex items-center gap-3 py-2.5 border-b border-slate-50 last:border-0">
-                <div class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center text-base shrink-0">{item.emoji}</div>
+                <div class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center shrink-0 text-slate-400"><Icon name="package" size={15} /></div>
                 <div class="flex-1 min-w-0">
                   <p class="text-xs font-medium text-slate-800 leading-tight">{item.name}</p>
                   <p class="text-[11px] text-slate-400">{item.store}</p>
@@ -178,7 +179,7 @@ import Footer from '../components/Footer.astro';
       <div class="flex-1 flex justify-center">
         <div class="w-full max-w-sm bg-white rounded-3xl border border-slate-200 shadow-xl p-6">
           <div class="flex items-start gap-4 mb-6">
-            <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-3xl shrink-0">🧺</div>
+            <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center shrink-0 text-slate-400"><Icon name="package" size={22} /></div>
             <div>
               <h4 class="font-semibold text-slate-900">Tide Pods, 81 ct</h4>
               <p class="text-sm text-slate-500">Laundry Detergent</p>
@@ -246,13 +247,13 @@ import Footer from '../components/Footer.astro';
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {[
-          { icon: '🔍', title: 'Transparent sourcing', desc: 'Every price shows which store, which date, and whether it was verified.' },
-          { icon: '🚫', title: 'No hidden markups', desc: 'We do not add fees. What you see is what the store charges.' },
-          { icon: '🔒', title: 'Your list stays yours', desc: 'Your grocery list and habits are never sold or shared with advertisers.' },
-          { icon: '📊', title: 'Explained suggestions', desc: 'Every recommendation comes with the reasoning behind it. No black boxes.' },
+          { icon: 'search',    title: 'Transparent sourcing', desc: 'Every price shows which store, which date, and whether it was verified.' },
+          { icon: 'ban',       title: 'No hidden markups', desc: 'We do not add fees. What you see is what the store charges.' },
+          { icon: 'lock',      title: 'Your list stays yours', desc: 'Your grocery list and habits are never sold or shared with advertisers.' },
+          { icon: 'bar-chart', title: 'Explained suggestions', desc: 'Every recommendation comes with the reasoning behind it. No black boxes.' },
         ].map(card => (
           <div class="bg-white rounded-2xl p-6 border border-slate-100">
-            <div class="text-3xl mb-4">{card.icon}</div>
+            <div class="w-10 h-10 bg-teal-50 border border-teal-100 rounded-xl flex items-center justify-center mb-4 text-teal-600"><Icon name={card.icon} size={20} /></div>
             <h3 class="font-semibold text-slate-900 mb-2">{card.title}</h3>
             <p class="text-sm text-slate-500 leading-relaxed">{card.desc}</p>
           </div>
@@ -277,15 +278,15 @@ import Footer from '../components/Footer.astro';
       <div class="flex-1 flex justify-center">
         <div class="w-full max-w-xs space-y-2">
           {[
-            { label: 'Search', status: 'live', icon: '🔍' },
-            { label: 'Smart Cart', status: 'live', icon: '🛒' },
-            { label: 'Price Tracking', status: 'live', icon: '📈' },
-            { label: 'Recipe Planning', status: 'coming', icon: '🍳' },
-            { label: 'Household Budgeting', status: 'coming', icon: '💰' },
-            { label: 'Autonomous Shopping', status: 'future', icon: '🤖' },
+            { label: 'Search',              status: 'live',   icon: 'search' },
+            { label: 'Smart Cart',          status: 'live',   icon: 'cart' },
+            { label: 'Price Tracking',      status: 'live',   icon: 'trending-up' },
+            { label: 'Recipe Planning',     status: 'coming', icon: 'utensils' },
+            { label: 'Household Budgeting', status: 'coming', icon: 'wallet' },
+            { label: 'Autonomous Shopping', status: 'future', icon: 'sparkles' },
           ].map(item => (
             <div class={`flex items-center gap-4 rounded-2xl px-4 py-3.5 border ${item.status === 'live' ? 'bg-teal-50 border-teal-100' : item.status === 'coming' ? 'bg-slate-50 border-slate-100' : 'bg-white border-dashed border-slate-200'}`}>
-              <div class={`w-9 h-9 rounded-xl flex items-center justify-center text-lg shrink-0 ${item.status === 'live' ? 'bg-teal-100' : item.status === 'coming' ? 'bg-slate-100' : 'bg-slate-50'}`}>{item.icon}</div>
+              <div class={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${item.status === 'live' ? 'bg-teal-100 text-teal-700' : item.status === 'coming' ? 'bg-slate-100 text-slate-500' : 'bg-slate-50 text-slate-400'}`}><Icon name={item.icon} size={16} /></div>
               <span class={`flex-1 text-sm font-medium ${item.status === 'live' ? 'text-slate-900' : 'text-slate-500'}`}>{item.label}</span>
               <span class={`text-xs font-semibold px-2.5 py-1 rounded-full ${item.status === 'live' ? 'bg-teal-600 text-white' : item.status === 'coming' ? 'bg-slate-200 text-slate-600' : 'bg-slate-100 text-slate-400'}`}>
                 {item.status === 'live' ? 'Live' : item.status === 'coming' ? 'Coming soon' : 'Future'}

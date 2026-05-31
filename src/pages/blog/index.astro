@@ -2,14 +2,15 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import Icon from '../../components/Icon.astro';
 
 const posts = [
-  { slug: 'when-are-eggs-cheapest', category: 'Savings', title: 'When are eggs the cheapest near you?', excerpt: "Egg prices swing more than almost any grocery item. Here's how to track the right time to stock up based on local store patterns.", date: 'May 10, 2026', readTime: '5 min read', emoji: '🥚' },
-  { slug: 'shredded-vs-block-cheese', category: 'Guide', title: "Shredded vs Block Cheese: What's the better deal?", excerpt: 'The answer depends on how you cook, how much you buy, and which store you\'re at. We ran the unit price math so you don\'t have to.', date: 'Apr 28, 2026', readTime: '6 min read', emoji: '🧀' },
-  { slug: 'new-stores-optimization', category: 'Updates', title: 'New: Fewer Stores optimization mode', excerpt: 'The latest Cartana update adds a Fewest Stores mode to smart cart — consolidate your grocery run without blowing the budget.', date: 'Apr 18, 2026', readTime: '3 min read', emoji: '🗺️' },
-  { slug: 'grocery-budget-families', category: 'Guide', title: 'How families under $250/week shop smarter', excerpt: 'A deep look at which categories offer the most flexibility and which are price-stable — and how a smart cart changes the calculus.', date: 'Apr 5, 2026', readTime: '8 min read', emoji: '👨‍👩‍👧' },
-  { slug: 'unit-pricing-explained', category: 'Savings', title: 'Unit pricing is the most underrated grocery skill', excerpt: "Most shoppers never look at price per ounce. The ones who do save meaningfully every trip. Here's how to make it automatic.", date: 'Mar 22, 2026', readTime: '4 min read', emoji: '💲' },
-  { slug: 'tide-vs-generic', category: 'Savings', title: "Brand name vs. generic: when it matters and when it doesn't", excerpt: 'For some categories the brand is just packaging. For others, the quality gap is real. We mapped it out with actual shopper data.', date: 'Mar 14, 2026', readTime: '7 min read', emoji: '🧺' },
+  { slug: 'when-are-eggs-cheapest',  category: 'Savings', title: 'When are eggs the cheapest near you?', excerpt: "Egg prices swing more than almost any grocery item. Here's how to track the right time to stock up based on local store patterns.", date: 'May 10, 2026', readTime: '5 min read', icon: 'trending-up' },
+  { slug: 'shredded-vs-block-cheese', category: 'Guide',   title: "Shredded vs Block Cheese: What's the better deal?", excerpt: "The answer depends on how you cook, how much you buy, and which store you're at. We ran the unit price math so you don't have to.", date: 'Apr 28, 2026', readTime: '6 min read', icon: 'swap' },
+  { slug: 'new-stores-optimization', category: 'Updates', title: 'New: Fewer Stores optimization mode', excerpt: 'The latest Cartana update adds a Fewest Stores mode to smart cart — consolidate your grocery run without blowing the budget.', date: 'Apr 18, 2026', readTime: '3 min read', icon: 'map' },
+  { slug: 'grocery-budget-families', category: 'Guide',   title: 'How families under $250/week shop smarter', excerpt: 'A deep look at which categories offer the most flexibility and which are price-stable — and how a smart cart changes the calculus.', date: 'Apr 5, 2026', readTime: '8 min read', icon: 'wallet' },
+  { slug: 'unit-pricing-explained',  category: 'Savings', title: 'Unit pricing is the most underrated grocery skill', excerpt: "Most shoppers never look at price per ounce. The ones who do save meaningfully every trip. Here's how to make it automatic.", date: 'Mar 22, 2026', readTime: '4 min read', icon: 'tag' },
+  { slug: 'tide-vs-generic',         category: 'Savings', title: "Brand name vs. generic: when it matters and when it doesn't", excerpt: 'For some categories the brand is just packaging. For others, the quality gap is real. We mapped it out with actual shopper data.', date: 'Mar 14, 2026', readTime: '7 min read', icon: 'bar-chart' },
 ];
 ---
 
@@ -33,7 +34,9 @@ const posts = [
     <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {posts.map(post => (
         <article class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow group">
-          <div class="h-36 bg-slate-100 flex items-center justify-center text-6xl">{post.emoji}</div>
+          <div class={`h-36 flex items-center justify-center ${post.category === 'Savings' ? 'bg-emerald-50 text-emerald-500' : post.category === 'Guide' ? 'bg-blue-50 text-blue-400' : 'bg-teal-50 text-teal-500'}`}>
+            <Icon name={post.icon} size={40} />
+          </div>
           <div class="p-6">
             <div class="flex items-center gap-2 mb-3">
               <span class={`text-xs font-semibold px-2.5 py-1 rounded-full ${post.category === 'Savings' ? 'bg-green-100 text-green-700' : post.category === 'Guide' ? 'bg-blue-50 text-blue-600' : 'bg-teal-50 text-teal-700'}`}>{post.category}</span>
