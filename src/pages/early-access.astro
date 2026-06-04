@@ -1,0 +1,180 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Layout
+  title="Early Access — Cartana"
+  description="Join 2,400+ households getting early access to Cartana. Influence the roadmap and unlock Price Alerts before everyone else."
+>
+  <Header activePage="/early-access" />
+
+  <!-- HERO -->
+  <section class="bg-white pt-20 pb-24">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2 bg-teal-50 text-teal-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 border border-teal-100">
+        <span class="w-2 h-2 bg-teal-500 rounded-full animate-pulse"></span>
+        2,400+ households already joined
+      </div>
+      <h1 class="text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-6">
+        Get early access to<br />smarter shopping.
+      </h1>
+      <p class="text-xl text-slate-500 leading-relaxed mb-10">
+        Be among the first to use Cartana's full feature set — and help shape what we build next.
+      </p>
+
+      <!-- EMAIL FORM -->
+      <form
+        class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-6"
+        action="mailto:hello@cartanaapp.com"
+        method="GET"
+        enctype="text/plain"
+      >
+        <input
+          type="email"
+          name="subject"
+          placeholder="your@email.com"
+          required
+          class="flex-1 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm px-4 py-3.5 rounded-full focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+        />
+        <button
+          type="submit"
+          class="bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-colors whitespace-nowrap"
+        >
+          Join the waitlist
+        </button>
+      </form>
+      <p class="text-xs text-slate-400">No spam. No credit card. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section class="bg-slate-50 py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-slate-900 tracking-tight">What early access means</h2>
+        <p class="text-slate-500 mt-3">You're not just signing up. You're helping build something better.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { icon: 'sparkles',      title: 'First access to new features', desc: 'Price Alerts, Recipe Planning, Household Budgeting — early access members unlock them first.' },
+          { icon: 'message-circle',title: 'Shape the roadmap', desc: 'Your feedback directly influences what we build and in what order. We read every message.' },
+          { icon: 'bell',          title: 'Price alert notifications', desc: 'Get notified the moment items on your watchlist drop below average. Launches first for early access.' },
+          { icon: 'shield',        title: 'Privacy locked in', desc: 'We will never sell your data. Ever. Early access members keep the same protections, always.' },
+        ].map(b => (
+          <div class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
+            <div class="w-10 h-10 bg-teal-50 border border-teal-100 rounded-xl flex items-center justify-center mb-4 text-teal-600">
+              <Icon name={b.icon} size={18} />
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm mb-2">{b.title}</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">{b.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERRAL MECHANIC -->
+  <section class="bg-white py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="bg-teal-50 border border-teal-100 rounded-3xl p-10 text-center">
+        <div class="w-14 h-14 bg-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white">
+          <Icon name="users" size={24} />
+        </div>
+        <h2 class="text-3xl font-bold text-slate-900 mb-4">Invite friends, skip the line.</h2>
+        <p class="text-slate-600 leading-relaxed mb-8 max-w-xl mx-auto">
+          Refer 2 friends who join the waitlist and you'll unlock <strong class="text-teal-700">Price Alerts 30 days before general availability</strong> — plus a permanent spot at the top of the queue for every future feature launch.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
+          {[
+            { step: '1', label: 'Join the waitlist' },
+            { step: '2', label: 'Share your link' },
+            { step: '3', label: 'Unlock Price Alerts early' },
+          ].map((s, i) => (
+            <div class="flex items-center gap-4">
+              <div class="flex flex-col items-center">
+                <div class="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-sm">{s.step}</div>
+                <p class="text-xs font-medium text-slate-700 mt-2 text-center max-w-[80px] leading-tight">{s.label}</p>
+              </div>
+              {i < 2 && <svg class="hidden sm:block text-teal-300 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>}
+            </div>
+          ))}
+        </div>
+        <a
+          href="mailto:hello@cartanaapp.com?subject=Early Access"
+          class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-8 py-3.5 rounded-full transition-colors"
+        >
+          Join now and get your link
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="bg-slate-50 py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-slate-900 text-center mb-10">What early members are saying</h2>
+      <div class="grid sm:grid-cols-3 gap-6">
+        {[
+          { initials: 'SL', color: 'bg-teal-600',  quote: 'Found out I was overpaying by $30 on my usual grocery run. First week.',     name: 'Sarah L., Brooklyn' },
+          { initials: 'MR', color: 'bg-slate-700', quote: 'The price tracking is a game changer. I actually wait for dips now.',         name: 'Marcus R., Chicago' },
+          { initials: 'JP', color: 'bg-blue-600',  quote: "I compared three stores before leaving the house. Saved 20 minutes AND money.", name: 'Jen P., Austin' },
+        ].map(r => (
+          <div class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm">
+            <div class="flex gap-0.5 mb-4">
+              {[1,2,3,4,5].map(() => (
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><path d="M12 2l2.09 6.43H21l-5.47 3.97 2.09 6.43L12 14.87l-5.62 3.96 2.09-6.43L3 8.43h6.91z"/></svg>
+              ))}
+            </div>
+            <p class="text-sm text-slate-700 leading-relaxed mb-4">"{r.quote}"</p>
+            <div class="flex items-center gap-3">
+              <div class={`w-8 h-8 rounded-full ${r.color} flex items-center justify-center text-white text-xs font-bold shrink-0`}>{r.initials}</div>
+              <p class="text-xs text-slate-500">{r.name}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-white py-20">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-slate-900 text-center mb-10">Common questions</h2>
+      <div class="space-y-6">
+        {[
+          { q: 'Is Cartana really free?', a: 'Yes. Searching, comparing prices, and building carts is free forever. Advanced features like Price Alerts will have a free tier. We will always be upfront about what costs what.' },
+          { q: 'What happens after I join the waitlist?', a: "You'll get a confirmation email with your referral link. As we roll out access, early members are first in line — no waiting around for a random invite." },
+          { q: 'Which stores does Cartana cover?', a: "We cover 60+ national and regional chains including Walmart, Target, Kroger, Safeway, Walgreens, CVS, Trader Joe's, Whole Foods, and more. Coverage is expanding every month." },
+          { q: 'How does the referral program work?', a: "After you join, you'll get a unique link. When 2 friends sign up using your link, you unlock Price Alerts 30 days before everyone else. No purchase required, no tricks." },
+          { q: 'Do you sell my data?', a: 'Never. We make money by helping you shop better, not by selling your grocery habits to advertisers. Your list is yours, full stop.' },
+        ].map(item => (
+          <div class="border-b border-slate-100 pb-6">
+            <h3 class="font-semibold text-slate-900 mb-2">{item.q}</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bg-teal-800 py-16 text-center">
+    <div class="max-w-xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-white mb-4">Ready to shop smarter?</h2>
+      <p class="text-teal-200 mb-8">Join 2,400+ households already saving time and money every week.</p>
+      <a
+        href="mailto:hello@cartanaapp.com?subject=Early Access"
+        class="inline-flex items-center gap-2 bg-white text-teal-800 font-semibold px-8 py-4 rounded-full hover:bg-teal-50 transition-colors"
+      >
+        Get early access — it's free
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

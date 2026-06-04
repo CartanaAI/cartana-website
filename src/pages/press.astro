@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Layout
+  title="Press & Media — Cartana"
+  description="Media resources, key stats, and contact information for journalists covering Cartana."
+>
+  <Header activePage="/press" />
+
+  <!-- HERO -->
+  <section class="bg-white pt-20 pb-16">
+    <div class="max-w-3xl mx-auto px-6">
+      <p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-4">Press & Media</p>
+      <h1 class="text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-6">
+        The shopping intelligence layer households have been missing.
+      </h1>
+      <p class="text-xl text-slate-500 leading-relaxed mb-8">
+        Cartana helps households compare local grocery prices, build optimized carts, and track deals across nearby stores — all in one place, with no ads and no data sales.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="mailto:press@cartanaapp.com"
+          class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm px-5 py-2.5 rounded-full transition-colors"
+        >
+          <Icon name="mail" size={14} />
+          press@cartanaapp.com
+        </a>
+        <a
+          href="/header-logo.png"
+          download
+          class="inline-flex items-center gap-2 border border-slate-200 text-slate-700 hover:border-slate-300 font-semibold text-sm px-5 py-2.5 rounded-full transition-colors"
+        >
+          <Icon name="package" size={14} />
+          Download logo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY STATS -->
+  <section class="bg-slate-50 py-16">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-slate-900 mb-10 text-center">By the numbers</h2>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { value: '$1,000+',  label: 'Average household overspend on groceries per year', source: 'USDA' },
+          { value: '40%',      label: 'Of food purchased is never eaten', source: 'USDA / FMI / NRDC' },
+          { value: '60+',      label: 'Store chains tracked in Cartana', source: 'Cartana data' },
+          { value: '2,400+',   label: 'Households on early access waitlist', source: 'Cartana data' },
+        ].map(s => (
+          <div class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm text-center">
+            <p class="text-4xl font-bold text-teal-600 mb-2">{s.value}</p>
+            <p class="text-sm text-slate-700 leading-snug mb-2">{s.label}</p>
+            <p class="text-xs text-slate-400">Source: {s.source}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- THE STORY -->
+  <section class="bg-white py-20">
+    <div class="max-w-4xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-2xl font-bold text-slate-900 mb-5">The story</h2>
+        <div class="space-y-4 text-slate-500 leading-relaxed text-sm">
+          <p>
+            American households are spending more on groceries than ever — and most of that overspend isn't intentional. It's the result of fragmented information: prices that vary by store, promotions that are hard to track, and apps built to maximize purchases rather than savings.
+          </p>
+          <p>
+            Cartana was built to fix the information problem. Not by telling people what to buy, but by giving them clear, accurate, real-time data so they can make their own informed decisions.
+          </p>
+          <p>
+            The product compares local prices across 60+ store chains, helps shoppers build optimized carts (by best price, fewest stops, or shortest drive), and tracks price trends over time so households know when to buy and when to wait.
+          </p>
+          <p>
+            It is free to use. It does not sell user data. It does not take fees from retailers.
+          </p>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-slate-900 mb-5">Story angles</h2>
+        <div class="space-y-4">
+          {[
+            { label: 'Grocery inflation coverage', desc: "Cartana's data shows real price variance across chains — a source for consumer-facing inflation stories." },
+            { label: 'Privacy-first consumer tech', desc: 'A shopping tool that explicitly refuses to sell data in a space dominated by ad-funded platforms.' },
+            { label: 'Household financial wellness', desc: 'The $1,000+ annual overspend story — and how Cartana addresses the information gap driving it.' },
+            { label: 'The anti-DoorDash angle', desc: "Delivery apps have increased household grocery spend. Cartana goes the other direction: in-store savings intelligence." },
+          ].map(a => (
+            <div class="border-l-2 border-teal-200 pl-4">
+              <p class="text-sm font-semibold text-slate-900">{a.label}</p>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">{a.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOILERPLATE -->
+  <section class="bg-slate-50 py-16">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">About Cartana (boilerplate)</h2>
+      <div class="bg-white rounded-2xl border border-slate-200 p-8">
+        <p class="text-sm text-slate-600 leading-relaxed italic">
+          "Cartana is a shopping intelligence platform that helps households compare local grocery prices, build optimized carts, and track deals across nearby stores. The app covers 60+ national and regional store chains, displays real unit-price comparisons, and tracks price trends over time. Cartana is free to use and does not sell user data to advertisers or retailers. It is currently in early access at cartanaapp.com."
+        </p>
+        <button
+          onclick="navigator.clipboard.writeText(this.closest('div').querySelector('p').innerText)"
+          class="mt-4 inline-flex items-center gap-2 text-xs text-teal-600 font-semibold hover:text-teal-800 transition-colors"
+        >
+          <Icon name="file-text" size={13} />
+          Copy to clipboard
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND ASSETS -->
+  <section class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-slate-900 mb-8">Brand assets</h2>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div class="border border-slate-200 rounded-2xl p-6 text-center">
+          <div class="bg-white border border-slate-100 rounded-xl p-4 mb-4 flex items-center justify-center h-24">
+            <img src="/header-logo.png" alt="Cartana logo" class="h-8 w-auto" />
+          </div>
+          <p class="text-sm font-semibold text-slate-900 mb-1">Logo — Color</p>
+          <a href="/header-logo.png" download class="text-xs text-teal-600 font-medium hover:underline">Download PNG</a>
+        </div>
+        <div class="border border-slate-200 rounded-2xl p-6 text-center">
+          <div class="bg-slate-900 border border-slate-100 rounded-xl p-4 mb-4 flex items-center justify-center h-24">
+            <img src="/header-logo.png" alt="Cartana logo white" class="h-8 w-auto brightness-0 invert" />
+          </div>
+          <p class="text-sm font-semibold text-slate-900 mb-1">Logo — White</p>
+          <a href="/header-logo.png" download class="text-xs text-teal-600 font-medium hover:underline">Download PNG</a>
+        </div>
+        <div class="border border-slate-200 rounded-2xl p-6 text-center">
+          <div class="bg-white border border-slate-100 rounded-xl p-4 mb-4 flex items-center justify-center h-24">
+            <img src="/favicon-32.png" alt="Cartana icon" class="h-10 w-auto" />
+          </div>
+          <p class="text-sm font-semibold text-slate-900 mb-1">App Icon</p>
+          <a href="/icon-512.png" download class="text-xs text-teal-600 font-medium hover:underline">Download PNG</a>
+        </div>
+      </div>
+      <div class="mt-8 bg-slate-50 rounded-2xl p-6 border border-slate-100">
+        <h3 class="text-sm font-semibold text-slate-900 mb-4">Brand colors</h3>
+        <div class="flex flex-wrap gap-4">
+          {[
+            { name: 'Teal 600 (Primary)', hex: '#0d9488', bg: 'bg-teal-600' },
+            { name: 'Teal 50 (Light)', hex: '#f0fdfa', bg: 'bg-teal-50 border border-teal-100' },
+            { name: 'Slate 900 (Text)', hex: '#0f172a', bg: 'bg-slate-900' },
+            { name: 'Slate 500 (Secondary)', hex: '#64748b', bg: 'bg-slate-500' },
+          ].map(c => (
+            <div class="flex items-center gap-3">
+              <div class={`w-8 h-8 rounded-lg ${c.bg}`}></div>
+              <div>
+                <p class="text-xs font-semibold text-slate-700">{c.name}</p>
+                <p class="text-xs text-slate-400 font-mono">{c.hex}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="bg-teal-800 py-16 text-center">
+    <div class="max-w-xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-white mb-4">Working on a story?</h2>
+      <p class="text-teal-200 mb-8">We respond to press inquiries within one business day. We can provide data, quotes, screenshots, and interviews.</p>
+      <a
+        href="mailto:press@cartanaapp.com"
+        class="inline-flex items-center gap-2 bg-white text-teal-800 font-semibold px-8 py-4 rounded-full hover:bg-teal-50 transition-colors"
+      >
+        <Icon name="mail" size={16} />
+        press@cartanaapp.com
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
