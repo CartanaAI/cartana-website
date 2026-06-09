@@ -26,26 +26,9 @@ import Icon from '../components/Icon.astro';
       </p>
 
       <!-- EMAIL FORM -->
-      <form
-        class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-6"
-        action="mailto:hello@cartanaapp.com"
-        method="GET"
-        enctype="text/plain"
-      >
-        <input
-          type="email"
-          name="subject"
-          placeholder="your@email.com"
-          required
-          class="flex-1 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm px-4 py-3.5 rounded-full focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-        />
-        <button
-          type="submit"
-          class="bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-colors whitespace-nowrap"
-        >
-          Join the waitlist
-        </button>
-      </form>
+      <div class="max-w-md mx-auto mb-6">
+        <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="02cfbe5b-b5b6-4f1e-920a-95e68b7e5577"></script>
+      </div>
       <p class="text-xs text-slate-400">No spam. No credit card. Unsubscribe anytime.</p>
     </div>
   </section>
