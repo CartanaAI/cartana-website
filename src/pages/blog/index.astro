@@ -36,7 +36,7 @@ const posts = [
   <section class="bg-slate-50 py-16">
     <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {posts.map(post => (
-        <article class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow group">
+        <a href={`/blog/${post.slug}`} class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow group block">
           <div class={`h-36 flex items-center justify-center ${post.category === 'Savings' ? 'bg-emerald-50 text-emerald-500' : post.category === 'Guide' ? 'bg-blue-50 text-blue-400' : 'bg-teal-50 text-teal-500'}`}>
             <Icon name={post.icon} size={40} />
           </div>
@@ -51,7 +51,7 @@ const posts = [
               <span>{post.readTime}</span>
             </div>
           </div>
-        </article>
+        </a>
       ))}
     </div>
   </section>
